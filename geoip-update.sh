@@ -1,5 +1,5 @@
 # IMPORTANT:
-# When using the GeoIP data, please make sure to comply with the terms of db-ip.com:
+# When using the GeoIP data, please make sure to comply with the terms of db-ip.com (attribution, etc.):
 # https://db-ip.com/db/download/ip-to-city-lite
 #
 # ABOUT THIS SCRIPT:
