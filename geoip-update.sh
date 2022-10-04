@@ -27,5 +27,8 @@ if [ -e $geoip_dir/geoip_download.mmdb ]; then
     cp $geoip_dir/geoip.mmdb $geoip_dir/geoip.mmdb.old
   fi
   mv -f $geoip_dir/geoip_download.mmdb $geoip_dir/geoip.mmdb
+
+  # uncomment the following line if you want to make the geoip.mmdb file readable by everyone
+  #chmod 644 $geoip_dir/geoip.mmdb
 fi
 
