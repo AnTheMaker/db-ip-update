@@ -4,12 +4,12 @@
 #
 # ABOUT THIS SCRIPT:
 # This script gets the latest version of the free "IP-to-City Lite" GeoIP database provided by db-ip.com
-# and places it at /usr/share/geoip-data/geoip.mmdb (can be changed below)
+# and places it at /var/geoip-data/geoip.mmdb (can be changed below)
 #
 # It is recommended to create a cronjob to execute this script once a month to keep your GeoIP database up-to-date
 
 
-geoip_dir="/usr/share/geoip-data"
+geoip_dir="/var/geoip-data"
 download_file="dbip-city-lite-$(date +'%Y')-$(date +'%m').mmdb"
 download_url="https://download.db-ip.com/free/$download_file.gz"
 
