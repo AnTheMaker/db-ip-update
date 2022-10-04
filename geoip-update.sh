@@ -7,6 +7,7 @@
 # and places it at /var/geoip-data/geoip.mmdb (can be changed below)
 #
 # It is recommended to create a cronjob to execute this script once a month to keep your GeoIP database up-to-date
+# https://github.com/AnTheMaker/db-ip-update
 
 
 geoip_dir="/var/geoip-data"
