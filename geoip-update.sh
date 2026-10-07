@@ -22,11 +22,17 @@ download_url="https://download.db-ip.com/free/$download_file.gz"
 mkdir -p $geoip_dir
 
 # download latest GeoIP database and unzip it
-curl -s $download_url -o $geoip_dir/geoip_download.mmdb.gz
-gunzip -f $geoip_dir/geoip_download.mmdb.gz
+# (-f: don't save HTTP error pages, so a failed download can't replace a good database)
+if curl -fsS "$download_url" -o "$geoip_dir/geoip_download.mmdb.gz" && gunzip -f "$geoip_dir/geoip_download.mmdb.gz"; then
+  download_ok=true
+else
+  download_ok=false
+  rm -f "$geoip_dir/geoip_download.mmdb.gz" "$geoip_dir/geoip_download.mmdb"
+  echo "geoip-update: download failed, keeping existing database" >&2
+fi
 
 # move it to the correct destination
-if [ -e $geoip_dir/geoip_download.mmdb ]; then
+if [ "$download_ok" = true ] && [ -e $geoip_dir/geoip_download.mmdb ]; then
   if [ -e $geoip_dir/geoip.mmdb ]; then
     cp $geoip_dir/geoip.mmdb $geoip_dir/geoip.mmdb.old
   fi
